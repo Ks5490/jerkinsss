@@ -1,7 +1,7 @@
 pipeline {
     agent any 
 
-    enviroment {
+    environment {
         IMAGE_NAME = 'ks5490/terraform_spartan_project:JK.' + "$BUILD_NUMBER"
     }
 
