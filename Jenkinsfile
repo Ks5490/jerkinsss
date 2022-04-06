@@ -8,5 +8,13 @@ pipeline {
                 url: "https://github.com/Ks5490/jerkinsss.git"
             }
         }
+
+        stage('Build Docker Image'){
+            steps {
+                script {
+                    docker.build 'ks5490/terraform_spartan_project:0.6'
+                }
+            }
+        }
     }
 }
