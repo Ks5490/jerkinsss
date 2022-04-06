@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 
 
-
 ### Home page route ###
 @app.route("/", methods = ["GET"])
 def home_page():

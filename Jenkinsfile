@@ -36,6 +36,13 @@ pipeline {
                     '''
                 }
             }
+        
+
+            post{
+                always{
+                    junit testResults: '**/test-results/*.xml'
+                }
+            }
         }
 
 
