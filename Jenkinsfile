@@ -12,7 +12,17 @@ pipeline {
         stage('Build Docker Image'){
             steps {
                 script {
-                    docker.build 'ks5490/terraform_spartan_project:0.6'
+                   DOCKER_IMAGE = docker.build 'ks5490/terraform_spartan_project:0.6'
+                }
+            }
+        }
+
+        stage('Push to Docker Hub'){
+            steps{
+                script {
+                    docker.withRegistry('' , 'docker_hub_cred'){
+                        DOCKER_IMAGE.push()
+                    }
                 }
             }
         }
