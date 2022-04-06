@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'ks5490/terraform_spartan_project:JK.' + "$BUILD_NUMBER"
+        DOCKER_CRED = 'docker_hub_cred'
     }
 
     stages {
@@ -24,7 +25,7 @@ pipeline {
         stage('Push to Docker Hub'){
             steps{
                 script {
-                    docker.withRegistry('' , 'docker_hub_cred'){
+                    docker.withRegistry('' , DOCKER_CRED){
                         DOCKER_IMAGE.push()
                     }
                 }
