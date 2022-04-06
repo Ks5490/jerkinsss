@@ -3,11 +3,10 @@ pipeline {
 
     stages {
         stage('Cloning the project from GitHub'){
-            steps (
+            steps {
                 git branch: 'main', 
                 url: "https://github.com/Ks5490/jerkinsss.git"
-            )
+            }
         }
-
     }
 }
