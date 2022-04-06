@@ -1,6 +1,10 @@
 pipeline {
     agent any 
 
+    enviroment {
+        IMAGE_NAME = 'ks5490/terraform_spartan_project:JK.' + "$BUILD_NUMBER"
+    }
+
     stages {
         stage('Cloning the project from GitHub'){
             steps {
@@ -12,7 +16,7 @@ pipeline {
         stage('Build Docker Image'){
             steps {
                 script {
-                   DOCKER_IMAGE = docker.build 'ks5490/terraform_spartan_project:0.6'
+                   DOCKER_IMAGE = docker.build IMAGE_NAME
                 }
             }
         }
