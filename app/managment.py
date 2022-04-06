@@ -2,7 +2,6 @@ from time import time
 from timeit import Timer
 from flask import Flask, request
 from spartan import Spartan
-import pymongo
 from pymongo import MongoClient
 
 
