@@ -8,6 +8,6 @@ COPY requirements.txt requirements.txt
 # install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
 
-ENTRYPOINT [ "python3" , "/app.py" ]
+CMD  python3 , /app.py 
  
 
