@@ -7,12 +7,20 @@ pipeline {
     }
 
     stages {
+            
         stage('Cloning the project from GitHub'){
             steps {
-                git branch: 'main', 
-                url: "https://github.com/Ks5490/jerkinsss.git"
+                checkout([
+                    $class: 'GitSCM', branches: [[name: '*/main']],
+                    serRemoteConfigs: [[
+                        url: 'git@github.com:Ks5490/jerkinsss.git',
+                        credentialsId: 'ssh_git_cred'
+                    ]]
+                ])
             }
         }
+
+
 
         stage('Build Docker Image'){
             steps {
